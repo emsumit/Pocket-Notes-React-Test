@@ -29,7 +29,6 @@ export default function ChatArea({ notes, onAddNote, groupName, color }) {
     <>
       <div style={{ height: "70%" }}>
         <div>
-          {console.log(color)}
           <h1 style={{ backgroundColor: color }}>
             {getInitialLetters(groupName) || "No Group Selected"}
           </h1>

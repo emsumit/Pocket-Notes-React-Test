@@ -2,7 +2,6 @@
 import React from "react";
 
 export default function Group({ title, initialLetters, color, onClick }) {
-  console.log(color);
   return (
     <div onClick={onClick}>
       {" "}

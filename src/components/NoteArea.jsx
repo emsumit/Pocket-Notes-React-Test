@@ -9,7 +9,6 @@ export default function NoteArea({
   onAddNote,
   color,
 }) {
-  console.log(color);
   return (
     <div style={{ height: "100%" }}>
       {showChatArea ? (
@@ -17,7 +16,7 @@ export default function NoteArea({
           groupName={selectedGroup.title}
           notes={selectedGroup.notes}
           onAddNote={onAddNote}
-          color={color}
+          color={selectedGroup.color}
         />
       ) : (
         <MainPage />
