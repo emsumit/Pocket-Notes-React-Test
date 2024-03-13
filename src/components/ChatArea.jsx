@@ -1,4 +1,3 @@
-// ChatArea.js
 import React, { useState } from "react";
 
 export default function ChatArea({ notes, onAddNote, groupName, color }) {
@@ -13,7 +12,7 @@ export default function ChatArea({ notes, onAddNote, groupName, color }) {
   const handleKeyDown = (e) => {
     // Check if Enter key is pressed
     if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault(); // Prevents adding a new line (optional)
+      e.preventDefault(); // Prevents adding a new line
       handleSubmit(); // Call the submit function
     }
   };

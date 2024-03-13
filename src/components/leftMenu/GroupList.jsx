@@ -1,4 +1,3 @@
-// GroupList.js
 import React from "react";
 import Group from "./Group";
 
@@ -15,7 +14,6 @@ export default function GroupList({ groups, onGroupClick, onDeleteGroup }) {
       <div>
         {groups.map((group) => (
           <div key={group.id}>
-            {/* Pass the initial letters and color as props */}
             <Group
               title={group.title}
               initialLetters={getInitialLetters(group.title)}
