@@ -1,0 +1,10 @@
+.main-container {
+  height: 100vh;
+  display: flex;
+}
+.group-area {
+  width: 30%;
+}
+.notes-area {
+  width: 70%;
+}
