@@ -11,8 +11,42 @@
 }
 
 .modal-content {
+  font-weight: 600;
+  width: 30%;
   background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.group-name-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.group-name-input > input {
+  height: 30px;
+  width: 220px;
+  border: solid #cccccc 2px;
+  border-radius: 22px;
+  padding-left: 4%;
+}
+.color-name-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.group-create-btn {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 2.5% 0 0 0;
+}
+.group-create-btn > button {
+  height: 28px;
+  width: 80px;
+  background-color: #001f8b;
+  border: none;
+  border-radius: 10px;
+  color: white;
 }

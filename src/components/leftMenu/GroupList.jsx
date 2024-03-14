@@ -1,17 +1,23 @@
 import React from "react";
 import Group from "./Group";
+import "./GroupList.css";
 
-export default function GroupList({ groups, onGroupClick, onDeleteGroup }) {
+export default function GroupList({
+  groups,
+  onGroupClick,
+  onDeleteGroup,
+  selectedGroupId,
+}) {
   const handleClick = (group) => {
     onGroupClick(group);
   };
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="header-name">
         <h1>Pocket Notes</h1>
       </div>
-      <div>
+      <div className="list-container">
         {groups.map((group) => (
           <div key={group.id}>
             <Group
@@ -19,6 +25,7 @@ export default function GroupList({ groups, onGroupClick, onDeleteGroup }) {
               initialLetters={getInitialLetters(group.title)}
               color={group.color}
               onClick={() => handleClick(group)}
+              selected={selectedGroupId === group.id}
             />
             <button onClick={() => onDeleteGroup(group.id)}>
               Delete Group
@@ -26,7 +33,7 @@ export default function GroupList({ groups, onGroupClick, onDeleteGroup }) {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import "./ChatArea.css";
+import submitBtnDisabled from "../assets/submit-disabled.png";
+import submitBtnEnabled from "../assets/submit-enabled.png";
+import Ellipse from "../assets/Ellipse.png";
 
 export default function ChatArea({ notes, onAddNote, groupName, color }) {
   const [newNote, setNewNote] = useState("");
@@ -26,33 +30,43 @@ export default function ChatArea({ notes, onAddNote, groupName, color }) {
 
   return (
     <>
-      <div style={{ height: "70%" }}>
-        <div>
+      <div className="chat-area-main">
+        <div className="chat-area-head">
           <h1 style={{ backgroundColor: color }}>
             {getInitialLetters(groupName) || "No Group Selected"}
           </h1>
           <h2>{groupName}</h2>
         </div>
 
-        <div>
+        <div className="chat-area-notes">
           {notes.map((note, index) => (
-            <div key={index}>
+            <div className="chat-notes" key={index}>
               <p>{note.content}</p>
-              <small>{note.noteDate}</small> <small>{note.timestamp}</small>
+              <div className="note-date-time">
+                <small>{note.noteDate}</small>{" "}
+                <div>
+                  <img src={Ellipse} />
+                </div>
+                <small>{note.timestamp}</small>
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div style={{ height: "30%" }}>
+      <div className="chat-input-area">
         <textarea
+          placeholder="Enter your text here..........."
           autoComplete="off"
-          style={{ width: "100%", height: "70%" }}
           value={newNote}
           onChange={(e) => setNewNote(e.target.value)}
           onKeyDown={handleKeyDown}
         ></textarea>{" "}
         <button onClick={handleSubmit} disabled={!newNote.trim()}>
-          Submit
+          {newNote.trim() ? (
+            <img src={submitBtnEnabled} alt="Enabled Button" />
+          ) : (
+            <img src={submitBtnDisabled} alt="Disabled Button" />
+          )}
         </button>
       </div>
     </>

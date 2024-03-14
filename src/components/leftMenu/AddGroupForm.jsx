@@ -29,15 +29,23 @@ const AddGroupForm = ({ onAddGroup, onClose }) => {
   return (
     <div className="modal-container" onClick={handleCloseModal}>
       <div className="modal-content">
-        <input
-          type="text"
-          placeholder="Enter Group Name"
-          value={groupName}
-          onChange={(e) => setGroupName(e.target.value)}
-        />
-        {/* Render the ColorPicker component */}
-        <ColorPicker onSelectColor={handleColorSelect} />
-        <button onClick={handleSubmit}>Submit</button>
+        <p>Create New Group</p>
+        <div className="group-name-input">
+          <p>Group Name</p>
+          <input
+            type="text"
+            placeholder="Enter Group Name"
+            value={groupName}
+            onChange={(e) => setGroupName(e.target.value)}
+          />
+        </div>
+        <div className="color-name-input">
+          <p>Choose Colour</p>
+          <ColorPicker onSelectColor={handleColorSelect} />
+        </div>
+        <div className="group-create-btn">
+          <button onClick={handleSubmit}>Create</button>
+        </div>
       </div>
     </div>
   );

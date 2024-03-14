@@ -110,8 +110,11 @@ export default function App() {
           groups={groups}
           onGroupClick={handleGroupClick}
           onDeleteGroup={handleDeleteGroup}
+          selectedGroupId={selectedGroup ? selectedGroup.id : null}
         />
-        <div onClick={handleAddGroupClick}>Add Group</div>
+        <div className="add-group-btn" onClick={handleAddGroupClick}>
+          +
+        </div>
       </div>
       <div className="notes-area">
         <NoteArea

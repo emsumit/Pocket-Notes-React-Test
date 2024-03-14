@@ -1,10 +1,11 @@
 import React from "react";
 import MainPage from "./MainPage";
 import ChatArea from "./ChatArea";
+import "./NoteArea.css";
 
 export default function NoteArea({ showChatArea, selectedGroup, onAddNote }) {
   return (
-    <div style={{ height: "100%" }}>
+    <div className="note-area-main">
       {showChatArea ? (
         <ChatArea
           groupName={selectedGroup.title}
