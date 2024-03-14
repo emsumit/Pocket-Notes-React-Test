@@ -27,9 +27,9 @@ export default function GroupList({
               onClick={() => handleClick(group)}
               selected={selectedGroupId === group.id}
             />
-            <button onClick={() => onDeleteGroup(group.id)}>
+            {/* <button onClick={() => onDeleteGroup(group.id)}>
               Delete Group
-            </button>
+            </button> */}
           </div>
         ))}
       </div>
