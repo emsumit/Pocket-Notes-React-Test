@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./ChatArea.css";
 import submitBtnDisabled from "../assets/submit-disabled.png";
 import submitBtnEnabled from "../assets/submit-enabled.png";
@@ -13,6 +13,7 @@ export default function ChatArea({
   backbtnclick,
 }) {
   const [newNote, setNewNote] = useState("");
+  const chatAreaRef = useRef(null);
 
   const handleBackButtonClick = () => {
     backbtnclick(); // Call the onBackButtonClick function passed from App.js
@@ -24,6 +25,7 @@ export default function ChatArea({
       setNewNote(""); // Clear the textarea after submitting
     }
   };
+
   const handleKeyDown = (e) => {
     // Check if Enter key is pressed
     if (e.key === "Enter" && !e.shiftKey) {
@@ -39,12 +41,19 @@ export default function ChatArea({
     return initials.join("");
   };
 
+  useEffect(() => {
+    // Scroll to bottom when component mounts or notes change
+    if (chatAreaRef.current) {
+      chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+    }
+  }, [notes]);
+
   return (
     <>
       <div className="chat-area-main">
         <div className="chat-area-head">
           <div className="back-button" onClick={handleBackButtonClick}>
-            <img src={backBtn} />
+            <img src={backBtn} alt="Back Button" />
           </div>
           <h1 style={{ backgroundColor: color }}>
             {getInitialLetters(groupName) || "No Group Selected"}
@@ -52,14 +61,14 @@ export default function ChatArea({
           <h2>{groupName}</h2>
         </div>
 
-        <div className="chat-area-notes">
+        <div className="chat-area-notes" ref={chatAreaRef}>
           {notes.map((note, index) => (
             <div className="chat-notes" key={index}>
               <p>{note.content}</p>
               <div className="note-date-time">
                 <small>{note.noteDate}</small>{" "}
                 <div>
-                  <img src={Ellipse} />
+                  <img src={Ellipse} alt="Ellipse Icon" />
                 </div>
                 <small>{note.timestamp}</small>
               </div>
