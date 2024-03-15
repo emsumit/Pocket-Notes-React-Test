@@ -50,3 +50,8 @@
   border-radius: 10px;
   color: white;
 }
+@media (max-width: 768px) {
+  .modal-content {
+    width: 75%;
+  }
+}
