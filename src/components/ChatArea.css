@@ -79,3 +79,18 @@ textarea::placeholder {
   border: none;
   background-color: transparent;
 }
+.back-button {
+  display: none;
+}
+@media (max-width: 768px) {
+  .back-button {
+    display: block;
+    margin: 15px 10px 15px 15px;
+  }
+  .chat-input-area {
+    height: 20%;
+  }
+  .chat-area-main {
+    height: 80%;
+  }
+}

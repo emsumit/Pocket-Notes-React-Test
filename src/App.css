@@ -23,3 +23,29 @@
   border-radius: 50%;
   font-size: 4rem;
 }
+/* Styles for mobile view */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .group-area {
+    width: 100%;
+    height: 100%;
+  }
+  .notes-area {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  .note-area-shown .group-area {
+    display: none;
+  }
+
+  .note-area-shown .notes-area {
+    display: block;
+  }
+
+  .group-area-hidden .group-area {
+    display: none;
+  }
+}

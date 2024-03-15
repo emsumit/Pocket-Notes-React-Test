@@ -49,19 +49,21 @@ export default function App() {
     );
   };
 
+  const handleBackButtonClick = () => {
+    setShowNoteArea(false); // Hide note area when back button is clicked
+  };
+
+  const [showNoteArea, setShowNoteArea] = useState(false);
+
   const handleGroupClick = (group) => {
     setShowChatArea(true);
     setSelectedGroup(group);
+    setShowNoteArea(true);
   };
 
   const handleAddNote = (newNote) => {
     if (selectedGroup) {
       const currentDate = new Date();
-      const optionsDate = {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      };
 
       const optionsTime = {
         hour: "numeric",
@@ -104,8 +106,8 @@ export default function App() {
   };
 
   return (
-    <div className="main-container">
-      <div className="group-area">
+    <div className={`main-container ${showNoteArea ? "note-area-shown" : ""}`}>
+      <div className={`group-area ${showNoteArea ? "group-area-hidden" : ""}`}>
         <GroupList
           groups={groups}
           onGroupClick={handleGroupClick}
@@ -116,20 +118,21 @@ export default function App() {
           +
         </div>
       </div>
-      <div className="notes-area">
+      <div className={`notes-area ${showNoteArea ? "notes-area-shown" : ""}`}>
         <NoteArea
           groups={groups}
           showChatArea={showChatArea}
           selectedGroup={selectedGroup}
           onAddNote={handleAddNote}
+          onBackButtonClick={handleBackButtonClick}
         />
-        {showAddGroupForm && (
-          <AddGroupForm
-            onAddGroup={handleAddGroup}
-            onClose={handleAddGroupFormClose}
-          />
-        )}
-      </div>
+      </div>{" "}
+      {showAddGroupForm && (
+        <AddGroupForm
+          onAddGroup={handleAddGroup}
+          onClose={handleAddGroupFormClose}
+        />
+      )}
     </div>
   );
 }

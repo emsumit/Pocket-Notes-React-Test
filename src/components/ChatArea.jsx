@@ -3,9 +3,20 @@ import "./ChatArea.css";
 import submitBtnDisabled from "../assets/submit-disabled.png";
 import submitBtnEnabled from "../assets/submit-enabled.png";
 import Ellipse from "../assets/Ellipse.png";
+import backBtn from "../assets/back-btn.png";
 
-export default function ChatArea({ notes, onAddNote, groupName, color }) {
+export default function ChatArea({
+  notes,
+  onAddNote,
+  groupName,
+  color,
+  backbtnclick,
+}) {
   const [newNote, setNewNote] = useState("");
+
+  const handleBackButtonClick = () => {
+    backbtnclick(); // Call the onBackButtonClick function passed from App.js
+  };
 
   const handleSubmit = () => {
     if (newNote.trim() !== "") {
@@ -32,6 +43,9 @@ export default function ChatArea({ notes, onAddNote, groupName, color }) {
     <>
       <div className="chat-area-main">
         <div className="chat-area-head">
+          <div className="back-button" onClick={handleBackButtonClick}>
+            <img src={backBtn} />
+          </div>
           <h1 style={{ backgroundColor: color }}>
             {getInitialLetters(groupName) || "No Group Selected"}
           </h1>
