@@ -26,6 +26,7 @@
 /* Styles for mobile view */
 @media (max-width: 768px) {
   .main-container {
+    height: 100vh;
     flex-direction: column;
   }
   .group-area {
