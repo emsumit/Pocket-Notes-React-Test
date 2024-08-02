@@ -20,8 +20,10 @@
   font-size: 1.4rem;
 }
 .chat-area-head > h2 {
+  width: 85%;
   font-weight: 400;
   font-size: 1.4rem;
+  overflow: hidden;
 }
 .chat-area-notes {
   height: 85%;
@@ -92,5 +94,8 @@ textarea::placeholder {
   }
   .chat-area-main {
     height: 80%;
+  }
+  .chat-area-head > h2 {
+    width: 60%;
   }
 }

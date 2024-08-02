@@ -9,6 +9,7 @@ export default function Group({
 }) {
   return (
     <div
+      className="groupNameAndTitle"
       style={{ backgroundColor: selected ? "#2F2F2F2B" : "transparent" }}
       onClick={onClick}
     >

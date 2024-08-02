@@ -1,6 +1,8 @@
 import React from "react";
 import Group from "./Group";
 import "./GroupList.css";
+import { MdDeleteForever } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 export default function GroupList({
   groups,
@@ -19,17 +21,17 @@ export default function GroupList({
       </div>
       <div className="list-container">
         {groups.map((group) => (
-          <div key={group.id}>
+          <div className="listItem" key={group._id}>
             <Group
               title={group.title}
               initialLetters={getInitialLetters(group.title)}
               color={group.color}
               onClick={() => handleClick(group)}
-              selected={selectedGroupId === group.id}
+              selected={selectedGroupId === group._id}
             />
-            {/* <button onClick={() => onDeleteGroup(group.id)}>
-              Delete Group
-            </button> */}
+            <div onClick={() => onDeleteGroup(group._id)}>
+              <MdDeleteForever size={30} className="deleteIcon" />
+            </div>
           </div>
         ))}
       </div>
